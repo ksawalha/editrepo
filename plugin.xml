@@ -4,85 +4,13 @@
 	xmlns:android="http://schemas.android.com/apk/res/android"
     id="cordova-plugin-edit-plist-file"
     version="0.0.3">
-    
 	<name>Edit Plist file</name>
-	
-	<description>
-        A Cordova plugin that helps you indicate the modifications on the iOS's *-info.plist file.
-        So it avoids you to directly edit the *-info.plist file.
-        For example it is used to whitelist some schemes for iOS 9.
-        This plugin was initially created to avoid iOS 9 problems that prevent opening other apps from your own app because some used plugins aren't updated to take into consideration the new specification for iOS 9.
-    </description>
-	
-	<author>Haythem OUEDERNI - haythem@nirbyapp.com</author>
-	<keywords>cordova,whitelist,ios9,ecosystem:cordova,cordova-ios</keywords>
-	<license>MIT</license>
-	
 	<engines>
-		<!-- Requires > 3.3.* because of the custom Framework tag for iOS [CB-5238] -->
-		<!-- Requires > 3.5.0 because of the custom Framework tag for Android [CB-6698] -->
 		<engine name="cordova" version=">=3.5.0" />
 	</engines>
-	
-	<!-- iOS -->
 	<platform name="ios">
-		<!-- iOS9 whitelisting -->
-		<config-file target="*-Info.plist" parent="NSPrivacyFileTimestampUsageDescription">
-			<string>This app uses file timestamps for data synchronization purposes.</string>
-		</config-file>
-		
-		<config-file target="*-Info.plist" parent="NSPrivacyDiskSpaceUsageDescription">
-			<string>This app checks available disk space for caching data.</string>
-		</config-file>
-		
-		<config-file target="*-Info.plist" parent="NSPrivacyUserDefaultsUsageDescription">
-			<string>This app stores user preferences and settings locally using UserDefaults.</string>
-		</config-file>
-		
-		<!-- Location access purpose string -->
 		<config-file target="*-Info.plist" parent="NSLocationAlwaysAndWhenInUseUsageDescription">
-			<string>Enable location access to use auto-attendance.</string>
-		</config-file>
-		
-		<config-file target="*-Info.plist" parent="NSPhotoLibraryUsageDescription">
-			<string>Enable this to be able to upload media.</string>
-		</config-file>
-		
-		<config-file target="*-Info.plist" parent="NSCameraUsageDescription">
-			<string>Enable this to be able to take photos.</string>
-		</config-file>
-		
-		<config-file target="*-Info.plist" parent="OneSignalAppId">
-			<string>b8644822-4cd9-4ad5-8616-222c02e3bdbc</string>
-		</config-file>
-		
-		<!-- Adding NSPrivacyAccessedAPITypes array with approved reasons for APIs -->
-		<config-file target="*-Info.plist" parent="NSPrivacyAccessedAPITypes">
-			<dict>
-				<!-- Reason for NSPrivacyAccessedAPICategoryUserDefaults -->
-				<key>NSPrivacyAccessedAPICategoryUserDefaults</key>
-				<string>This app uses UserDefaults to store user preferences and settings.</string>
-				
-				<!-- Reason for NSPrivacyAccessedAPICategoryFileTimestamp -->
-				<key>NSPrivacyAccessedAPICategoryFileTimestamp</key>
-				<string>This app may access file timestamps for caching and data management purposes.</string>
-				
-				<!-- Reason for NSPrivacyAccessedAPICategoryDiskSpace -->
-				<key>NSPrivacyAccessedAPICategoryDiskSpace</key>
-				<string>This app may check available disk space for optimizing file downloads and storage.</string>
-			</dict>
-		</config-file>
-		
-		<!-- Adding URL Scheme for deeplinking -->
-		<config-file target="*-Info.plist" parent="CFBundleURLTypes">
-			<array>
-				<dict>
-					<key>CFBundleURLSchemes</key>
-					<array>
-						<string>com.karamsawalha.arabicschool</string>
-					</array>
-				</dict>
-			</array>
+			<string>Access to your location is required to deliver the app's core location-based feature</string>
 		</config-file>
 	</platform>
 </plugin>
